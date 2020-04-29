@@ -11,11 +11,11 @@ import base64
 from urllib import parse
 from bs4 import BeautifulSoup
 
-API_KEY = '0100000000a775d7a3987de5bc6df42708fc4916898ad7a8f5db91d8a5ca614822d46a70e9'
-SECRET_KEY = 'AQAAAADexJhM1o0jqgVhMRt2GMbXN9JemPeb6a5HlTqMugXwQg=='
-CUSTOMER_ID = '1904416'
+API_KEY = '자신의 API_KEY'
+SECRET_KEY = '자신의 SECRET_KEY'
+CUSTOMER_ID = '자신의 CUSTOMER_ID'
 
-
+# HMAC 생성 - 네이버에서 기본적으로 제공함
 class Signature:
 
     @staticmethod
@@ -45,6 +45,7 @@ soup = BeautifulSoup(response.text, 'lxml')
 
 while menu != '5':
     if menu == '1':
+        # 연관검색어
         print("\n============================== 1. Related Keyword ==============================\n")
 
         related = soup.find("div", class_="co_relation_srh")
@@ -61,14 +62,19 @@ while menu != '5':
             print("There is no related keyword.")
 
     elif menu == '2':
+        # 1페이지에 검색된 상품들
         print("\n============================== 2. Classification(1 page) ==============================\n")
 
+        # 총 개수
         total = soup.find_all("li", class_="_itemSection")
-
+        
+        # 네이버 광고가 붙은 상품
         ad = soup.find_all("li", class_="ad _itemSection")
 
+        # 가격사이트 비교 상품
         compare_group = soup.find_all("li", class_="_model_list _itemSection")
 
+        # 스토어팜에 등록된 상품
         storefarm = soup.find_all("li", class_="exception _itemSection")
 
         print("total:", len(total), "개\nad:", len(ad), "개\ncompare group:", len(compare_group), "개\nstorefarm:", len(storefarm), "개\nstandard: ", len(total) - len(ad) - len(compare_group) - len(storefarm), "개\n")
@@ -84,23 +90,13 @@ while menu != '5':
 
             print(i + 1,":", title.text)
 
-
     elif menu == '4':
+        # 실질적인 공급량 구하기
         print("\n============================== 4. Counting Overall Product ==============================")
 
         total_product = soup.find("a", class_="_productSet_total").find("em", text="전체").next_sibling
 
         total_num = int(total_product.replace(',', ''))
-
-        # compare_product = soup.find("a", class_="_productSet_model").text
-
-        # npay_product = soup.find("a", class_="_productSet_checkout").text
-
-        # department_product = soup.find("a", class_="_productSet_department").text
-
-        # hotdeal_product = soup.find("a", class_="_productSet_hotdeal").text
-
-        # shoppingwindow_product = soup.find("a", class_="_productSet_window").text
 
         overseas_product = soup.find("a", class_="_productSet_overseas").find("em", text="해외직구").next_sibling
 
@@ -118,7 +114,7 @@ while menu != '5':
         supply = total_num - overseas_num
         print("Total product number:", supply,"개")
 
+        # 경쟁강도 구하기 - 값이 낮을수록 좋음
         print("Competitiveness :", supply/demand)
-        # print(total_product, compare_product, npay_product, department_product, hotdeal_product, shoppingwindow_product, overseas_product)
-
+       
     menu = input("\n\n\n1. Related Keyword\n2. Classification\n3. Title\n4. Counting\n5. Quit\nInput menu number: ")
