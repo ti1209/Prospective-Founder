@@ -1,12 +1,10 @@
-# Client ID : 06WJKuCdH5hQMbXHSo42
-# Clend Secret : KRnjxh_A8o
-
 from bs4 import BeautifulSoup
 import json
 import requests
 from datetime import datetime, timedelta
 from urllib.request import Request
 
+# 기준 데이터 - 어제일자
 yesterday = datetime.today() - timedelta(days=1)
 setDate = yesterday.strftime("%Y-%m-%d")
 
@@ -31,15 +29,16 @@ fourth_list = []
 for i in two.find_all("a"):
     try:
         if i.strong:
+            # 2분류
             second_list.append([i.strong.text, i['href'][30:]])
-            # print("\n\n************************* 2분류 ", i.strong.text, i['href'][30:], "*************************")
         else:
             if int(i['href'][34:]) > int(3000):
+                # 4분류
                 fourth_list.append([i.text, i['href'][30:]])
-                # print("------------------------- 4분류 ", i.text, i['href'][30:])
             else:
+                # 3분류
                 third_list.append([i.text, i['href'][30:]])
-                # print("\n######################### 3분류 ", i.text, i['href'][30:])
+                
     except ValueError:
         continue
 
@@ -120,13 +119,15 @@ while sort != '5':
                             print("오늘의 ratio 100 카테고리 :", row['title'])
 
                     else:
+                        # 값이 1이상인 것만 뽑고 싶을 때 적용
                         # if float(row['data'][0]['ratio']) > float(1.00000):
                             print(row['title'], row['data'][0]['ratio'])
                 else:
+                    # 데이터가 없는 경우
                     print(row['title'], "X")
 
         except IndexError:
-            print("Error",current_list)
+            print("Error")
             break
 
     print("\n\n\n")
