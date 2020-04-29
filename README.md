@@ -23,3 +23,12 @@
 ![](https://github.com/ti1209/Prospective-Founder/blob/master/image/crawl_2.PNG)
 ![](https://github.com/ti1209/Prospective-Founder/blob/master/image/crawl_3.PNG)
 ![](https://github.com/ti1209/Prospective-Founder/blob/master/image/crawl_4.PNG)
+
+
+### 4. category.py  
+-> 네이버 데이터랩 쇼핑인사이트 하단에 위치한 트렌드 비교값 가져오기  
+-> 참고 https://developers.naver.com/docs/datalab/shopping/#%EC%87%BC%ED%95%91%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%B6%84%EC%95%BC%EB%B3%84-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%A1%B0%ED%9A%8C
+
+**Output**  
+![](https://github.com/ti1209/Prospective-Founder/blob/master/image/category.PNG)
+       
