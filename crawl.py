@@ -80,7 +80,7 @@ while menu != '5':
         print("total:", len(total), "개\nad:", len(ad), "개\ncompare group:", len(compare_group), "개\nstorefarm:", len(storefarm), "개\nstandard: ", len(total) - len(ad) - len(compare_group) - len(storefarm), "개\n")
 
     elif menu == '3':
-        # 각 상품  크롤링 - 상품 키워드 선정 시 참고용
+        # 각 상품 크롤링 - 상품 키워드 선정 시 참고용
         print("============================== 3. Collect Title(",len(total),"개) ==============================\n")
         print("브랜드/제조사 | 시리즈 | 모델명 | 상품종류 | 색상 | 소재 | 패키지/내용물/수량 | 사이즈 | 성별/나이 | 속성(스펙, 용량, 무게, 연식, 호수)\n")
 
