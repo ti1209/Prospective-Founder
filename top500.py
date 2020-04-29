@@ -12,6 +12,7 @@ driver.maximize_window()
 
 driver.implicitly_wait(3) 
 
+# 50001490은 귀걸이의 category ID
 driver.get('https://datalab.naver.com/shoppingInsight/sCategory.naver?cid=50001490')
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight/3)")
