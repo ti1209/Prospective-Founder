@@ -103,8 +103,8 @@ while sort != '5':
             }
 
             compare = requests.post(url, json=payload,
-                                headers={"X-Naver-Client-Id" : "06WJKuCdH5hQMbXHSo42",
-                                "X-Naver-Client-Secret" : "KRnjxh_A8o",
+                                headers={"X-Naver-Client-Id" : "자신의 X-Naver-Client-Id",
+                                "X-Naver-Client-Secret" : "자신의 X-Naver-Client-Secret",
                                 "Content-Type" : "application/json"}).json()
 
             for row in compare['results']:
