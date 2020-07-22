@@ -31,4 +31,8 @@
 
 **Output**  
 ![](https://github.com/ti1209/Prospective-Founder/blob/master/image/category.PNG)
+
+
+### 5. dafalza.py
+-> 다팔자 서버에 직접 접근하여 원하는 상품들의 가격 등의 정보를 가져오기  
        
