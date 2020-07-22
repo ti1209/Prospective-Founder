@@ -14,8 +14,8 @@ while info != '3':
         url = "https://auth.ownerclan.xyz/auth"
 
         payload = {
-            "username" : "qorgh0902",
-            "password" : "dear0902!!",
+            "username" : "ID",
+            "password" : "PW",
             "service" : "ownerclan",
             "userType" : "seller"
         }
