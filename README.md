@@ -1,4 +1,10 @@
 # Prospective-Founder
+### 0. 사용 API  
+- coupang https://developers.coupang.com/hc/ko/articles/360033877853-%EC%83%81%ED%92%88-%EC%83%9D%EC%84%B1  
+- 도매꾹 http://openapi.domeggook.com/main/reference/detail?api_no=73&scope_code=SCP_OPEN  
+- 네이버 https://naver.github.io/searchad-apidoc/#/tags/AdKeyword  
+
+
 
 ### 1. top500.py  
 -> 네이버 데이터랩 쇼핑인사이트 우측에 위치한 인기검색어 500개 가져오기  
